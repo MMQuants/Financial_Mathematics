@@ -41,8 +41,8 @@ function PlotSlopes
 
 
         function z = f(x,y)
-            % z =
-            z = x*y;
+             z = y^2+x*y+sin(x);
+            %z = x*y;
         end
 
 
