@@ -1,4 +1,13 @@
 
+%{
+   % uslovie
+nachertaite poleto ot pravi na 
+a) uravnenieto: y' = xy 
+v kvadrata b -5<= x <=5
+5<= y <=5
+b) v sashtia prozorec nachertava grafika
+%/
+%}
 
 
 function PlotSlopes
@@ -7,7 +16,7 @@ function PlotSlopes
     y = linspace(-5,5,30);
     
     hold on;
-    axis ([-6,6-6,6]);
+    axis ([-6,6,-6,6]);
     delta = 0.2;
 
     for i = 1: length(x)
