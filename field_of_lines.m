@@ -48,7 +48,4 @@ function PlotSlopes
 
 end
 
-    [x0,y0] = ginput(1);
-    [X1, Y1] = ode45(@f, [x0,5], y0);
-    X1
-    Y1
+
