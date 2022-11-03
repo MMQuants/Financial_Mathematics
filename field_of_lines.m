@@ -22,7 +22,7 @@ function PlotSlopes
     for i = 1: length(x)
         for j=1:length(y)
             fValue = f(x(i), y(j));
-            scale = delta / sqrt(1+fValue^2)
+            scale = delta / sqrt(1+fValue^2);
             plot([x(i)-scale, x(i)+scale], ...
                  [y(j)-scale*fValue, y(j)+scale*fValue], 'k')
             plot(x(i),y(j))
@@ -30,9 +30,25 @@ function PlotSlopes
     
     end
 
+    [x0,y0] = ginput(1);
+    plot(x0,y0, 'bo');
+
+    [X1, Y1] = ode45(@f, [x0,5], y0);
+    [X2, Y2] = ode45(@f, [x0,-5], y0);
+    plot(X1, Y1, "r", X2, Y2, "b")
+
+
+
+
         function z = f(x,y)
+            % z =
             z = x*y;
         end
 
 
 end
+
+    [x0,y0] = ginput(1);
+    [X1, Y1] = ode45(@f, [x0,5], y0);
+    X1
+    Y1
