@@ -6,7 +6,11 @@ axis([-10,10,-10,10]);
 
 syms x y z;
 F = z^2-x*z-x^2+5*y;
-diff(F, z)
 
+Fz = diff(F, z);
+
+[y,z]=solve(F, Fz,y,z);
+y
+z
 
 end
