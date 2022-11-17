@@ -20,6 +20,9 @@ plot(x0,y0,'r*');
 
     if y0>x0^2/4
         text(x0,y0," no solution");
+    else
+        y_sol = dsolve("(Dy)^2-x*Dy-x^2+5*y=0", "y(x0)=y0", 'x');
+        y_sol
     end
 
 end
