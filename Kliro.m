@@ -16,6 +16,10 @@ x = linspace(-8,8,200);
 plot(x, eval(y), 'k');
 
 [x0,y0] = ginput(1);
-plot(x0,y0,'r*')
+plot(x0,y0,'r*');
+
+    if y0>x0^2/4
+        text(x0,y0," no solution");
+    end
 
 end
