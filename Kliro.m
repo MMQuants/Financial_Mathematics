@@ -13,6 +13,9 @@ Fz = diff(F, z);
 [y,z]=solve(F, Fz,y,z);
 
 x = linspace(-8,8,200);
-plot(x, eval(y), 'k')
+plot(x, eval(y), 'k');
+
+[x0,y0] = ginput(1);
+plot(x0,y0,'r*')
 
 end
