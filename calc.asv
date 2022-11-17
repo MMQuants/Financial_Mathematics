@@ -1,0 +1,7 @@
+function calc
+axis([-4 4 -10 10]);
+hold on;
+grid on;
+[x0,y0]=ginput(1);
+plot(x0,y0,'r*');
+[T,Y1]=ode45(@f,);
