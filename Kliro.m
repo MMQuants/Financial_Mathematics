@@ -22,7 +22,7 @@ plot(x0,y0,'r*');
         text(x0,y0," no solution");
     else
         y_sol = dsolve("(Dy)^2-x*Dy-x^2+5*y=0", "y(x0)=y0", 'x');
-        y_sol
+        plot(x, eval(y_sol),'b');
     end
 
 end
