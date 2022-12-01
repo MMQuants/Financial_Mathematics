@@ -5,12 +5,9 @@ b=20;
 u0=3;
 v0=0;
 
-
-
 x = linspace(x0, b, 300);
 
 u = dsolve('D2u = -4*u-(1/2)*Du', 'u(0)=u0', 'Du(0)=v0', "x");
-
 
 plot(x, eval(u),"k")
 
@@ -25,18 +22,15 @@ y(2) = u0+h*v0+h^2/2*f(x0,u0,v0);
 hold on;
 grid on;
 
-
-for i = 2:length(x)-1
-    y(i+1) = 2*y(i)-y(i-1)+h^2*f(x(i),y(i),(y(i)-y(i-1)/h));
-
-end
-
-    function z = f(p,q,t)
-        z = -4*q-1/2*t;
-
+    for i = 2:length(x)-1
+        y(i+1) = 2*y(i)-y(i-1)+h^2*f(x(i),y(i),(y(i)-y(i-1))/h);
 
     end
 
+    plot(x,y,'b.')
 
+    function z = f(p,q,t)
+        z = -4*q-1/2*t;
+    end
 
 end
