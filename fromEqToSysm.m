@@ -1,9 +1,9 @@
 function fromEqToSysm
 
-[X,Y] = ode45(@f, [0,3]; [-1;13;0]);
+[X,Y] = ode45(@f, [0,3], [-4;13;0]);
 
 
-Y(:,1)
+plot(X, Y(:,1), X,Y(:,2), X,Y(:,3))
 
 
     function z = f(x,y)
