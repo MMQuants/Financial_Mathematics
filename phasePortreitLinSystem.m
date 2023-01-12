@@ -10,4 +10,12 @@ function phasePortreitLinSystem
     eqPoint
 
     plot(eqPoint(1), eqPoint(2), "r*")
+
+    axis([eqPoint(1)-5, eqPoint(1)+5, eqPoint(2)-5, eqPoint(2)+5])
+
+    % sobstveni vektori i stoinosti na matricata A
+
+    [T,D] = eig(A)
+
+    % sobstveni pravi
 end
