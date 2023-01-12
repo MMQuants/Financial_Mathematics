@@ -30,6 +30,30 @@ function phasePortreitLinSystem
         plot(eqPoint(1)+xx*T(1,2), eqPoint(2)+xx*T(2,2), "k");
     end
 
+    % generirane na nachalni uslovia
+    % matricata X sydyrja purvite kooordinati
+    % matricata Y sydyrja vtorite kooordinati
+
+    x= eqPoint(1) -4:2:eqPoint(1)+4;   
+    y= eqPoint(2) -4:2:eqPoint(2)+4;
+
+
+    [X,Y] = meshgrid(x,y);
+    
+    % namirane reshenieto na sistemaata za t v intervala [-tmax, +tmax]
+    % za vsqko edno ot nachalnite uslovia
+    
+    for i = 1: length(x)
+        for j = 1:length(y) 
+            [T1, Z1] = ode45(@rhs, [0, tmax], [X(i,j), Y(i,j)]);
+            [T2, Z2] = ode45(@rhs, [0, tmax], [X(i,j), Y(i,j)]);
+            
+            plot(Z1(:,1), Z1(:,2), "r");
+            plot(Z2(:,1), Z1(:,2), "r");
+        end
+    end
+
+
     function z = rhs(y,t)
        z = A*y +b;
     end
