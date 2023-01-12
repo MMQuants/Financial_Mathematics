@@ -1,6 +1,6 @@
 function phasePortreitLinSystem
-    A = [1,2;4,3];
-    b = [1; -1];
+    A = [-1,0;0,-2];
+    b = [-1; -6];
     tmax = 5;
     
   
@@ -46,10 +46,10 @@ function phasePortreitLinSystem
     for i = 1: length(x)
         for j = 1:length(y) 
             [T1, Z1] = ode45(@rhs, [0, tmax], [X(i,j), Y(i,j)]);
-            [T2, Z2] = ode45(@rhs, [0, tmax], [X(i,j), Y(i,j)]);
+            [T2, Z2] = ode45(@rhs, [0,-tmax], [X(i,j), Y(i,j)]);
             
-            plot(Z1(:,1), Z1(:,2), "r");
-            plot(Z2(:,1), Z1(:,2), "b");
+            plot(Z1(:,1), Z1(:,2), 'r');
+            plot(Z2(:,1), Z2(:,2), 'b');
         end
     end
 % generirane na vectornoto pole 
@@ -62,7 +62,7 @@ function phasePortreitLinSystem
 
     quiver(X,Y,DX./d, DY./d, 0.3, 'g');
 
-    function z = rhs(~,y)
+    function z = rhs(y,t)
        z = A*y +b;
     end
 
