@@ -49,12 +49,20 @@ function phasePortreitLinSystem
             [T2, Z2] = ode45(@rhs, [0, tmax], [X(i,j), Y(i,j)]);
             
             plot(Z1(:,1), Z1(:,2), "r");
-            plot(Z2(:,1), Z1(:,2), "r");
+            plot(Z2(:,1), Z1(:,2), "b");
         end
     end
+% generirane na vectornoto pole 
+% i nachertavane na vector kym vsqko nachalno uslovie
 
+    DX = A(1,1)*X + A(1,2)*Y+b(1);
+    DY = A(2,1)*X + A(2,2)*Y+b(1);
 
-    function z = rhs(y,t)
+    d= sqrt(DX.^2 + DY.^2);
+
+    quiver(X,Y,DX./d, DY./d, 0.3, 'g');
+
+    function z = rhs(~,y)
        z = A*y +b;
     end
 
