@@ -15,7 +15,14 @@ function phasePortreitLinSystem
 
     % sobstveni vektori i stoinosti na matricata A
 
-    [T,D] = eig(A)
+    [T,D] = eig(A);
 
     % sobstveni pravi
+
+    if imag(D(1,1)) == 0
+        xx = -10:1:10;
+
+        plot(eqPoint(1)+xx*T(1,1), eqPoint(2)+xx*T(2,1), "b")
+    end
+
 end
