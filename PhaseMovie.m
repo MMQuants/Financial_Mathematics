@@ -15,7 +15,7 @@ function PhaseMovie
     % vector field
     x = -1:0.5:c/d+15;
     y = -1:0.5:a/b+10;
-    [X,Y] = a*X - b*X.*Y;
+    [X,Y] = meshgrid(x,y);
     DX = a*X - b*X.*Y;
     DY = -c*Y + d*X.*Y;
     D = sqrt(DX.^2+DY.^2);
@@ -23,7 +23,8 @@ function PhaseMovie
 
     % tragectory
     [x0, y0] = ginput(1);
-    [T,Z] = ode45(@ff, [0,tmax, [x0,y0]]);
+    plot(x0,y0,'go');
+    [T,Z] = ode45(@ff, [0,tmax], [x0,y0]);
 
     for i = 1:length(T)
         plot(Z(1:i,1), Z(1:i,2), 'r');
@@ -32,9 +33,8 @@ function PhaseMovie
 
 
     function z = ff(t,v)
-        z = [a*v(1) - b*v(1)*v(2); -c*v(2)+d*v(1)*v(2))]
-    
-    
+        z = [a*v(1) - b*v(1)*v(2); -c*v(2)+d*v(1)*v(2)];
+        
     end
 
 
