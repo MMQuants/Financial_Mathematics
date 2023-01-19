@@ -8,9 +8,23 @@ function PhaseMovie
     d =0.2;
     
     axis([-1, c/d+15, -1, a/b+10]);
+    hold on;
+    grid on;
     plot(0,0,'r*', c/d, a/b, 'r*')
 
+    % vector field
+    x = -1:0.5:c/d+15;
+    y = -1:0.5:a/b+10;
+    [X,Y] = a*X - b*X.*Y;
+    DX = a*X - b*X.*Y;
+    DY = -c*Y + d*X.*Y;
+    d = sqrt(DX.)
 
+    function x = ff(t,v)
+        z = [a*v(1) - b*v(1)*v(2); -c*v(2)+d*v(1)*v(2))]
+    
+    
+    end
 
 
 end
